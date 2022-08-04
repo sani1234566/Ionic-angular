@@ -1,14 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NewsapiService } from '../services/newsapi.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-apinews',
+  templateUrl: './apinews.page.html',
+  styleUrls: ['./apinews.page.scss'],
 })
-export class HomePage {
+export class ApinewsPage implements OnInit {
 
   newslist:any = [];
+
   defaultImage: string = "assets/image/placeholder.png";
 
   constructor(private newsapi:NewsapiService) { }

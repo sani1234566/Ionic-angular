@@ -1,20 +1,84 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+<ion-app>
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="4">
+            <ion-title>Ionic app</ion-title>
+          </ion-col>
+          <!-- <ion-col size="2">
+            <ion-button color="primary" href="https://www.google.com">
+              <ion-icon name="home-outline" slot="start"></ion-icon>
+              Home
+            </ion-button>
+          </ion-col> -->
+          <ion-col  class="ion-float-left" routerLink="/login" >Login</ion-col>
+          <ion-col  class="ion-float-left" routerLink="/signup" >Signup</ion-col>
+          <ion-col  class="ion-float-left" >Services</ion-col>
+          <ion-col class="ion-float-left">Contact</ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-content fullscreen>
+  <ion-grid size-sm size-md size-lg size-xl class="ion-padding">
+    <ion-row class="ion-align-items-center">
+      <ion-col size="3" *ngFor="let item of newslist; let i= index;">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>{{item?.title | slice:0:50}}</ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+            <a href="{{item?.url}}" target="blank"> <img [src]="item?.urlToImage ? item.urlToImage :defaultImage" class="img-fluid img-responsive img-thumbnail"
+                alt="news pic."></a>
+            <ion-text color="dark" style="font-size: 20px;">{{item?.description | slice:0:250}}.</ion-text><br /><br />
+            <ion-item>
+              <ion-label>Publish Date</ion-label>
+              <ion-badge color="danger" slot="end">{{item?.publishedAt |date:"short"}}</ion-badge>
+            </ion-item><br />
+            <!-- <ion-badge  color="medium" slot="end">{{item?.publishedAt |date:"short"}}</ion-badge><br /> -->
+            <ion-button  color="primary" href="{{item?.url}}" target="blank">Read More.
+            </ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
 </ion-content>
+
+<!-- <ion-content color="light" fullscreen="true" scroll-y="true" class="ion-padding" >
+  <div id="container" class="ion-padding">
+    <ion-grid>
+      <ion-row>
+        <ion-col class="ion-float-left">
+          <div>
+            <h3>float-left</h3>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac vehicula lorem.
+          </div>
+        </ion-col>
+        <ion-col class="ion-float-right">
+          <div>
+            <h3>float-right</h3>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac vehicula lorem.
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+
+</ion-content> -->
+
+
+
+<ion-footer>
+  <ion-toolbar color="primary">
+    <ion-title>Footer</ion-title>
+  </ion-toolbar>
+</ion-footer>
+
+
+</ion-app>

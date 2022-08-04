@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar translucent>
+    <ion-title>apinews</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-grid size-sm size-md size-lg size-xl class="ion-padding">
+    <ion-row class="ion-align-items-center">
+      <ion-col size="4" *ngFor="let item of newslist; let i= index;">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>{{item?.title | slice:0:50}}</ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+            <a href="{{item?.url}}" target="blank"> <img [src]="item?.urlToImage ? item.urlToImage :defaultImage" class="img-fluid img-responsive img-thumbnail"
+                alt="news pic."></a>
+            <ion-text color="dark" style="font-size: 20px;">{{item?.description | slice:0:500}}.</ion-text><br /><br />
+            <ion-item>
+              <ion-label>Publish Date</ion-label>
+              <ion-badge color="danger" slot="end">{{item?.publishedAt |date:"short"}}</ion-badge>
+            </ion-item><br />
+            <!-- <ion-badge  color="medium" slot="end">{{item?.publishedAt |date:"short"}}</ion-badge><br /> -->
+            <ion-button  color="success" href="{{item?.url}}" target="blank">Read More.
+            </ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="light" class="ion-no-border">
+
+    <ion-buttons slot="start">
+      <ion-buttons>
+        <ion-icon slot="icon-only" name="arrow-back" routerLink="/home" ></ion-icon>
+      </ion-buttons>
+    </ion-buttons>
+
+    <!-- <ion-icon slot="icon-only" name="arrow-back"></ion-icon> -->
+
+    <ion-buttons slot="end">
+      <ion-button color="primary" routerLink="/login" >Login</ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light" fullscreen="true" scroll-y="true" class="ion-padding">
+  <div id="header">
+    <h1>Signup</h1>
+    <img src="./assets/image/user.png">
+  </div>
+  <br />
+  <form id="form">
+    <app-input-box type="text" placeholder="Name"></app-input-box>
+
+    <app-input-box type="text" placeholder="Mobile"></app-input-box>
+
+    <app-input-box type="text" placeholder="Email"></app-input-box>
+
+    <app-input-box type="password" placeholder="password"></app-input-box>
+
+    <app-input-box type="password" placeholder="Confirm password"></app-input-box>
+
+    <ion-button size="samll" expand="block" shape="round">Signup</ion-button>
+
+  </form>
+
+</ion-content>

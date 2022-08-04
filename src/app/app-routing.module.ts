@@ -8,8 +8,21 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'apinews',
     pathMatch: 'full'
+  },
+
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'signup',
+    loadChildren: () => import('./signup/signup.module').then( m => m.SignupPageModule)
+  },
+  {
+    path: 'apinews',
+    loadChildren: () => import('./apinews/apinews.module').then( m => m.ApinewsPageModule)
   },
 ];
 
